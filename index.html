@@ -1,389 +1,355 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<header>
 
-<img
-src="smx-logo.png"
-alt="SMX Racing Logo"
-class="logo">
-
-<h1>SMX NASCAR TRUCKS 2026</h1><title>SMX NASCAR Trucks 2026 Championship</title>
+<title>SMX NASCAR Trucks 2026 Championship</title>
 
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-    margin:0;
-    background:#0b0b0b;
-    color:white;
-    font-family:Segoe UI,Arial,sans-serif;
+background:#0b0b0b;
+color:white;
+font-family:Segoe UI,Arial,sans-serif;
 }
 
 header{
-    text-align:center;
-    padding:40px 20px;
-    background:#111;
-    border-bottom:3px solid #1d2bff;
+text-align:center;
+padding:40px 20px;
+background:#101010;
+border-bottom:3px solid #2140ff;
+}
+
+.logo{
+max-width:450px;
+width:100%;
+display:block;
+margin:0 auto 20px auto;
 }
 
 h1{
-    margin:0;
-    font-size:42px;
+font-size:48px;
+margin-bottom:10px;
 }
 
 .subtitle{
-    color:#9ca9bc;
+color:#9ca9bc;
 }
 
 .container{
-    max-width:1200px;
-    margin:auto;
-    padding:20px;
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+margin-bottom:25px;
+}
+
+.card{
+background:#181818;
+padding:20px;
+border-radius:12px;
+}
+
+.leader-card{
+border-left:4px solid gold;
+}
+
+.wins-card{
+border-left:4px solid #2140ff;
+}
+
+.search-card{
+border-left:4px solid #00aeff;
+}
+
+.card h3{
+margin-bottom:15px;
+}
+
+.card-big{
+font-size:30px;
+margin-bottom:6px;
+}
+
+.search-input{
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:#222;
+color:white;
 }
 
 table{
-    width:100%;
-    border-collapse:collapse;
-    background:#181818;
+width:100%;
+border-collapse:collapse;
+background:#181818;
+margin-bottom:30px;
 }
 
 th{
-    background:#1d2bff;
-    padding:12px;
-    text-align:left;
+background:#2140ff;
+padding:12px;
+text-align:left;
 }
 
 td{
-    padding:12px;
-    border-bottom:1px solid #2b2b2b;
+padding:12px;
+border-bottom:1px solid #2d2d2d;
 }
 
-.leader{
-    background:rgba(255,215,0,.12);
+tr:hover{
+background:#222;
 }
 
-.julio{
-    background:rgba(0,174,255,.15);
+.highlight{
+background:#113355 !important;
 }
 
-.footer{
-    text-align:center;
-    padding:30px;
-    color:#888;
+.leader-row{
+background:rgba(255,215,0,.15);
+}
+
+details{
+background:#181818;
+margin-bottom:12px;
+border-radius:10px;
+overflow:hidden;
+}
+
+summary{
+padding:16px;
+cursor:pointer;
+font-weight:bold;
+background:#131313;
+}
+
+summary:hover{
+background:#1e1e1e;
+}
+
+h2{
+margin:25px 0 15px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#777;
 }
 
 @media(max-width:768px){
-    table{
-        font-size:14px;
-    }
-}
-</style>
 
+table{
+font-size:14px;
+}
+
+.logo{
+max-width:280px;
+}
+
+h1{
+font-size:32px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
 <header>
+
+<img src="smx-logo.png"
+alt="SMX Racing Logo"
+class="logo">
+
 <h1>SMX NASCAR TRUCKS 2026</h1>
+
 <p class="subtitle">
 Official Championship Standings
 </p>
+
 </header>
 
 <div class="container">
-<div style="
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:15px;
-margin-bottom:25px;">
 
-<div style="background:#181818;padding:20px;border-radius:10px;border-left:4px solid gold;">
+<div class="cards">
+
+<div class="card leader-card">
 <h3>🏆 Championship Leader</h3>
-<p style="font-size:24px;">Steven Daniluk</p>
-<p>108 Points</p>
+<div class="card-big">Steven Daniluk</div>
+108 Points
 </div>
 
-<div style="background:#181818;padding:20px;border-radius:10px;border-left:4px solid #1d2bff;">
+<div class="card wins-card">
 <h3>🥈 Most Wins</h3>
-<p style="font-size:24px;">2 Wins</p>
-<p>Steven Daniluk</p>
+<div class="card-big">2 Wins</div>
+Steven Daniluk
 </div>
 
-<div style="background:#181818;padding:20px;border-radius:10px;border-left:4px solid #00aeff;">
-<h3>🇲🇽 Julio Munguia</h3>
-<p style="font-size:24px;">P11</p>
-<p>80 Points</p>
+<div class="card search-card">
+<h3>🔍 Find Your Driver</h3>
+
+<input
+id="driverSearch"
+class="search-input"
+type="text"
+placeholder="Type driver name...">
+
 </div>
 
 </div>
+
 <h2>Championship Standings</h2>
 
-<table>
+<table id="standingsTable">
 
-<thead>
 <tr>
 <th>POS</th>
 <th>DRIVER</th>
 <th>PTS</th>
 <th>WINS</th>
 </tr>
-</thead>
 
-<tbody>
+<tr class="leader-row"><td>1</td><td>Steven Daniluk</td><td>108</td><td>2</td></tr>
+<tr><td>2</td><td>Thomas Thacker2</td><td>98</td><td>1</td></tr>
+<tr><td>3</td><td>Alex Ceccacci</td><td>98</td><td>0</td></tr>
+<tr><td>4</td><td>Bradley Vincent</td><td>94</td><td>0</td></tr>
+<tr><td>5</td><td>David Vincent4</td><td>89</td><td>0</td></tr>
+<tr><td>6</td><td>Cole Gamma</td><td>89</td><td>0</td></tr>
+<tr><td>7</td><td>Dylan Lord2</td><td>87</td><td>0</td></tr>
+<tr><td>8</td><td>Daniel Torres6</td><td>86</td><td>0</td></tr>
+<tr><td>9</td><td>Chad Graham2</td><td>84</td><td>0</td></tr>
+<tr><td>10</td><td>Gerardo Rodriguez9</td><td>81</td><td>0</td></tr>
+<tr><td>11</td><td>Julio Munguia</td><td>80</td><td>0</td></tr>
+<tr><td>12</td><td>Alfonso Montano2</td><td>76</td><td>0</td></tr>
+<tr><td>13</td><td>Ricardo Banuelos</td><td>71</td><td>0</td></tr>
+<tr><td>14</td><td>Xavier Hernandez3</td><td>62</td><td>0</td></tr>
+<tr><td>15</td><td>Jose Zamudio</td><td>58</td><td>0</td></tr>
+<tr><td>16</td><td>Mario Rafael Infante Salinas</td><td>46</td><td>0</td></tr>
+<tr><td>17</td><td>Shaun Gamma2</td><td>44</td><td>0</td></tr>
+<tr><td>18</td><td>Colin Clayton2</td><td>26</td><td>0</td></tr>
 
-<tr class="leader">
-<td>1</td>
-<td>Steven Daniluk</td>
-<td>108</td>
-<td>2</td>
-</tr>
-
-<tr>
-<td>2</td>
-<td>Thomas Thacker2</td>
-<td>98</td>
-<td>1</td>
-</tr>
-
-<tr>
-<td>3</td>
-<td>Alex Ceccacci</td>
-<td>98</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>4</td>
-<td>Bradley Vincent</td>
-<td>94</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>5</td>
-<td>David Vincent4</td>
-<td>89</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>6</td>
-<td>Cole Gamma</td>
-<td>89</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>7</td>
-<td>Dylan Lord2</td>
-<td>87</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>8</td>
-<td>Daniel Torres6</td>
-<td>86</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>9</td>
-<td>Chad Graham2</td>
-<td>84</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>10</td>
-<td>Gerardo Rodriguez9</td>
-<td>81</td>
-<td>0</td>
-</tr>
-
-<tr class="julio">
-<td>11</td>
-<td>Julio Munguia</td>
-<td>80</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>12</td>
-<td>Alfonso Montano2</td>
-<td>76</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>13</td>
-<td>Ricardo Banuelos</td>
-<td>71</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>14</td>
-<td>Xavier Hernandez3</td>
-<td>62</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>15</td>
-<td>Jose Zamudio</td>
-<td>58</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>16</td>
-<td>Mario Rafael Infante Salinas</td>
-<td>46</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>17</td>
-<td>Shaun Gamma2</td>
-<td>44</td>
-<td>0</td>
-</tr>
-
-<tr>
-<td>18</td>
-<td>Colin Clayton2</td>
-<td>26</td>
-<td>0</td>
-</tr></tbody>
 </table>
+
 <h2>Championship Schedule</h2>
 
 <table>
 
-<thead>
-<tr>
-<th>ROUND</th>
-<th>TRACK</th>
-<th>STATUS</th>
-</tr>
-</thead>
+<tr><th>Round</th><th>Track</th><th>Status</th></tr>
 
-<tbody>
-
-<tr>
-<td>1</td>
-<td>Charlotte Motor Speedway Oval</td>
-<td>✅ Completed</td>
-</tr>
-
-<tr>
-<td>2</td>
-<td>USA International Speedway</td>
-<td>✅ Completed</td>
-</tr>
-
-<tr>
-<td>3</td>
-<td>Daytona International Speedway Road Course</td>
-<td>✅ Completed</td>
-</tr>
-
-<tr>
-<td>4</td>
-<td>Thompson Speedway Motorsports Park</td>
-<td>⏳ Upcoming</td>
-</tr>
-
-<tr>
-<td>5</td>
-<td>Charlotte Motor Speedway Roval</td>
-<td>⏳ Upcoming</td>
-</tr>
-
-<tr>
-<td>6</td>
-<td>South Boston Speedway</td>
-<td>⏳ Upcoming</td>
-</tr>
-
-<tr>
-<td>7</td>
-<td>Phoenix Raceway Oval</td>
-<td>⏳ Upcoming</td>
-</tr>
-
-<tr>
-<td>8</td>
-<td>Daytona International Speedway Oval</td>
-<td>⏳ Upcoming</td>
-</tr>
-
-<tr>
-<td>9</td>
-<td>Indianapolis Motor Speedway Oval</td>
-<td>⏳ Upcoming</td>
-</tr>
-
-</tbody>
+<tr><td>1</td><td>Charlotte Motor Speedway Oval</td><td>✅ Completed</td></tr>
+<tr><td>2</td><td>USA International Speedway</td><td>✅ Completed</td></tr>
+<tr><td>3</td><td>Daytona Intl. Speedway Road Course</td><td>✅ Completed</td></tr>
+<tr><td>4</td><td>Thompson Speedway Motorsports Park</td><td>⏳ Upcoming</td></tr>
+<tr><td>5</td><td>Charlotte Motor Speedway Roval</td><td>⏳ Upcoming</td></tr>
+<tr><td>6</td><td>South Boston Speedway</td><td>⏳ Upcoming</td></tr>
+<tr><td>7</td><td>Phoenix Raceway Oval</td><td>⏳ Upcoming</td></tr>
+<tr><td>8</td><td>Daytona International Speedway Oval</td><td>⏳ Upcoming</td></tr>
+<tr><td>9</td><td>Indianapolis Motor Speedway Oval</td><td>⏳ Upcoming</td></tr>
 
 </table>
+
 <h2>Race Results</h2>
 
 <details>
-    <summary>Round 1 - Charlotte Motor Speedway Oval</summary>
-
-    <table>
-        <tr>
-            <th>POS</th>
-            <th>DRIVER</th>
-            <th>PTS</th>
-        </tr>
-
-        <tr><td>1</td><td>Thomas Thacker2</td><td>40</td></tr>
-        <tr><td>2</td><td>Gerardo Rodriguez9</td><td>35</td></tr>
-        <tr><td>3</td><td>Cole Gamma</td><td>34</td></tr>
-        <tr><td>4</td><td>Bradley Vincent</td><td>33</td></tr>
-        <tr><td>5</td><td>David Vincent4</td><td>32</td></tr>
-    </table>
-
+<summary>Round 1 - Charlotte Motor Speedway Oval</summary>
+<table>
+<tr><th>POS</th><th>DRIVER</th></tr>
+<tr><td>1</td><td>Thomas Thacker2</td></tr>
+<tr><td>2</td><td>Gerardo Rodriguez9</td></tr>
+<tr><td>3</td><td>Cole Gamma</td></tr>
+<tr><td>4</td><td>Bradley Vincent</td></tr>
+<tr><td>5</td><td>David Vincent4</td></tr>
+</table>
 </details>
 
 <details>
-    <summary>Round 2 - USA International Speedway</summary>
-
-    <table>
-        <tr>
-            <th>POS</th>
-            <th>DRIVER</th>
-            <th>PTS</th>
-        </tr>
-
-        <tr><td>1</td><td>Steven Daniluk</td><td>40</td></tr>
-        <tr><td>2</td><td>Bradley Vincent</td><td>35</td></tr>
-        <tr><td>3</td><td>Dylan Lord2</td><td>34</td></tr>
-        <tr><td>4</td><td>Alex Ceccacci</td><td>33</td></tr>
-        <tr><td>5</td><td>David Vincent4</td><td>32</td></tr>
-    </table>
-
+<summary>Round 2 - USA International Speedway</summary>
+<table>
+<tr><th>POS</th><th>DRIVER</th></tr>
+<tr><td>1</td><td>Steven Daniluk</td></tr>
+<tr><td>2</td><td>Bradley Vincent</td></tr>
+<tr><td>3</td><td>Dylan Lord2</td></tr>
+<tr><td>4</td><td>Alex Ceccacci</td></tr>
+<tr><td>5</td><td>David Vincent4</td></tr>
+</table>
 </details>
 
 <details>
-    <summary>Round 3 - Daytona International Speedway Road Course</summary>
-
-    <table>
-        <tr>
-            <th>POS</th>
-            <th>DRIVER</th>
-            <th>PTS</th>
-        </tr>
-
-        <tr><td>1</td><td>Steven Daniluk</td><td>40</td></tr>
-        <tr><td>2</td><td>Cole Gamma</td><td>35</td></tr>
-        <tr><td>3</td><td>Alex Ceccacci</td><td>34</td></tr>
-        <tr><td>4</td><td>Chad Graham2</td><td>33</td></tr>
-        <tr><td>5</td><td>Xavier Hernandez3</td><td>32</td></tr>
-    </table>
-
+<summary>Round 3 - Daytona Road Course</summary>
+<table>
+<tr><th>POS</th><th>DRIVER</th></tr>
+<tr><td>1</td><td>Steven Daniluk</td></tr>
+<tr><td>2</td><td>Cole Gamma</td></tr>
+<tr><td>3</td><td>Alex Ceccacci</td></tr>
+<tr><td>4</td><td>Chad Graham2</td></tr>
+<tr><td>5</td><td>Xavier Hernandez3</td></tr>
+</table>
 </details>
+
+</div>
+
+<footer>
+SMX Racing NASCAR Trucks 2026 Championship
+</footer>
+
+<script>
+
+const search =
+document.getElementById("driverSearch");
+
+search.addEventListener("keyup",function(){
+
+const filter =
+this.value.toLowerCase();
+
+const rows =
+document.querySelectorAll("#standingsTable tr");
+
+rows.forEach((row,index)=>{
+
+if(index===0)return;
+
+const driver =
+row.children[1].textContent.toLowerCase();
+
+row.classList.remove("highlight");
+
+if(filter===""){
+row.style.display="";
+return;
+}
+
+if(driver.includes(filter)){
+row.style.display="";
+row.classList.add("highlight");
+}
+else{
+row.style.display="none";
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
